@@ -1,22 +1,11 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.com.oleksandr.android.application)
+    alias(libs.plugins.com.oleksandr.android.koin)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.oleksandr.architectureplayground"
-    compileSdk = 34
-
-    defaultConfig {
-        applicationId = "com.oleksandr.architectureplayground"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
 
     buildTypes {
         release {
@@ -26,13 +15,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
