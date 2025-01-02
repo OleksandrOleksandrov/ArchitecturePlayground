@@ -22,4 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ArchitecturePlayground"
 include(":app")
- 
+include(":network")

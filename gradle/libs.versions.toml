@@ -6,7 +6,7 @@ app-minSdk = "24"
 
 #libs
 androidDesugarJdkLibs = "2.1.3"
-agp = "8.7.2"
+agp = "8.7.3"
 gradle = "8.7.2"
 kotlin = "2.0.0"
 coreKtx = "1.15.0"
@@ -18,6 +18,18 @@ activityCompose = "1.9.3"
 composeBom = "2024.10.01"
 koin = "3.5.3"
 koinCompose = "3.4.4"
+ktor-client = "2.3.0"
+
+#plugin
+googleServices = "4.4.2"
+firebaseAppDistribution = "5.0.0"
+ksp = "2.0.20-1.0.24"
+
+jvmTarget = "21"
+appcompat = "1.7.0"
+material = "1.12.0"
+org-jetbrains-kotlin-jvm = "1.9.23"
+koin-ksp = "1.3.1"
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -42,6 +54,15 @@ koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = 
 koin-android-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinCompose" }
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
 koin-test-junit = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
+di-koin-ksp = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-ksp" }
+
+# Ktor
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor-client" }
+ktor-client-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor-client" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor-client" }
+ktor-client-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor-client" }
+ktor-client-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor-client" }
+# Ktor
 
 # Dependencies of the included build-logic
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -49,12 +70,22 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 [bundles]
 #implement compose-bom platform first
 koin = ["koin.core", "koin.android", "koin.android.compose"]
+ktor = ["ktor.client.android", "ktor.client.negotiation", "ktor.client.serialization", "ktor.client.logging", "ktor.client.auth"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.1.0" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
-com-oleksandr-android-application = { id = "com.oleksandr.android.application" }
-com-oleksandr-android-koin = { id = "com.oleksandr.android.koin" }
+android-app-module-conventions = { id = "com.oleksandr.android.application" }
+android-koin-conventions = { id = "com.oleksandr.android.koin" }
+
+android-library = { id = "com.android.library", version.ref = "agp" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-appDistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebaseAppDistribution" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+#firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics" }
 

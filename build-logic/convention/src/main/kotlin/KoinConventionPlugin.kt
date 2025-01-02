@@ -7,7 +7,9 @@ class KoinConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             dependencies {
-                add("implementation", projectLibs.findBundle("koin").get())
+                plugins.withId("com.android.base") {
+                    add("implementation", projectLibs.findBundle("koin").get())
+                }
             }
         }
     }
