@@ -23,3 +23,9 @@ dependencyResolutionManagement {
 rootProject.name = "ArchitecturePlayground"
 include(":app")
 include(":network")
+include(":core-navigation")
+include(":common-kotlin")
+include(":common-mapper")
+include(":feature-earth-polychromatic-imaging-camera")
+include(":domain-epic")
+include(":data-epic")

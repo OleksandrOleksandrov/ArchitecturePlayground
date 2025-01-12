@@ -30,6 +30,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -39,4 +41,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(project(":network"))
+    implementation(project(":core-navigation"))
+    implementation(project(":common-kotlin"))
+    implementation(project(":common-mapper"))
+    implementation(project(":feature-earth-polychromatic-imaging-camera"))
+    implementation(project(":domain-epic"))
+    implementation(project(":data-epic"))
 }
