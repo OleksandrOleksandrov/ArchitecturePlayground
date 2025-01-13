@@ -4,7 +4,7 @@ import com.oleksandr.epic.model.EPICRepoModel
 import kotlinx.coroutines.flow.Flow
 
 interface EPICRepository {
-    val dataList: Flow<List<EPICRepoModel>>
+    val dataList: Flow<List<EPICRepoModel>?>
 
     suspend fun updateData()
 }

@@ -2,6 +2,7 @@ package com.oleksandr.architectureplayground
 
 import android.app.Application
 import com.oleksandr.architectureplayground.di.appModule
+import com.oleksandr.database.impl.di.dbModule
 import com.oleksandr.epic.di.dataEpicModule
 import com.oleksandr.epic.di.domainEpicModule
 import com.oleksandr.epic.di.featureEarthPolychromaticImagingCameraModule
@@ -22,6 +23,7 @@ class App : Application() {
                     featureEarthPolychromaticImagingCameraModule,
                     dataEpicModule,
                     domainEpicModule,
+                    dbModule,
                 )
             )
         }

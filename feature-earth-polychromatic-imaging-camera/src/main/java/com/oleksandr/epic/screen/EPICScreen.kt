@@ -12,6 +12,6 @@ fun EPICScreen() {
     val epicList = viewModel.epicList.collectAsStateWithLifecycle(emptyList())
     EPICContent(
         modifier = Modifier,
-        list = epicList.value,
+        list = epicList.value ?: emptyList(),
     )
 }

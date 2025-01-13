@@ -20,3 +20,11 @@ inline fun <reified In : Any, reified Out : Any> Flow<List<Out>>.withReverseList
 
 inline fun <T, R> Flow<T?>.mapNonNullValue(crossinline predicate: (T) -> R): Flow<R?> =
     map { it?.run(predicate) }
+
+inline fun <reified In : Any, reified Out : Any> Flow<List<In>?>.withNullableListMapper(
+    mapper: BaseMapper<In, Out>,
+): Flow<List<Out>?> = mapNonNullValue(mapper::mapListTo)
+
+inline fun <reified In : Any, reified Out : Any> Flow<List<Out>?>.withNullableReverseListMapper(
+    mapper: BaseMapper<In, Out>,
+): Flow<List<In>?> = mapNonNullValue(mapper::mapListFrom)

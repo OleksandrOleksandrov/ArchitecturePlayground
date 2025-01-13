@@ -41,6 +41,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(project(":network"))
+    implementation(project(":data-database"))
+    implementation(project(":data-database:impl"))
     implementation(project(":core-navigation"))
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))

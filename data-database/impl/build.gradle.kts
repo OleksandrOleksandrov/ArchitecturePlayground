@@ -3,12 +3,13 @@ plugins {
 
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.oleksandr.data.epic"
+    namespace = "com.oleksandr.data.database.impl"
     compileSdk = libs.versions.app.compileSdk.get().toInt()
 
     defaultConfig {
@@ -17,6 +18,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+
 
     buildFeatures {
         buildConfig = true
@@ -37,11 +39,15 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlinx.serialization.json)
-//    implementation(libs.gson)
-    implementation(libs.bundles.ktor)
-    implementation(project(":common-mapper"))
+    //region third-party
+    //region room
+    implementation(libs.room.common)
+    implementation(libs.room.core)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    //endregion room
+    //endregion third-party
+    //region modules
     implementation(project(":data-database"))
-    implementation(project(":network"))
+    //endregion modules
 }

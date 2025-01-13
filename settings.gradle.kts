@@ -23,6 +23,8 @@ dependencyResolutionManagement {
 rootProject.name = "ArchitecturePlayground"
 include(":app")
 include(":network")
+include(":data-database")
+include(":data-database:impl")
 include(":core-navigation")
 include(":common-kotlin")
 include(":common-mapper")

@@ -1,12 +1,12 @@
 package com.oleksandr.epic.mapper
 
 import com.oleksandr.common.mapper.BaseMapper
+import com.oleksandr.database.model.EPICDbModel
 import com.oleksandr.epic.model.EPICNetModel
-import com.oleksandr.epic.model.EPICRepoModel
 
-class EPICModelMapper : BaseMapper<EPICNetModel, EPICRepoModel> {
-    override fun mapTo(model: EPICNetModel) = with(model) {
-        EPICRepoModel(
+class EPICDbModelMapper : BaseMapper<EPICDbModel, EPICNetModel> {
+    override fun mapTo(model: EPICDbModel) = with(model) {
+        EPICNetModel(
             identifier = identifier,
             caption = caption,
             image = image,
@@ -14,9 +14,9 @@ class EPICModelMapper : BaseMapper<EPICNetModel, EPICRepoModel> {
         )
     }
 
-    override fun mapFrom(model: EPICRepoModel) = with(model) {
-        EPICNetModel(
-            identifier = identifier,
+    override fun mapFrom(model: EPICNetModel) = with(model) {
+        EPICDbModel(
+            identifier = identifier ?: "",
             caption = caption,
             image = image,
             date = date,
