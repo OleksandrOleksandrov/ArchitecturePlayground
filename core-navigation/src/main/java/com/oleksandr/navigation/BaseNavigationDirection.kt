@@ -13,4 +13,15 @@ sealed class BaseNavigationDirection {
      */
     @Serializable
     data object EPIC : BaseNavigationDirection()
+
+    /**
+     * Earth Polychromatic Imaging Camera (EPIC) Details
+     */
+    @Serializable
+    data class EpicDetails(
+        val identifier: String? = null,
+        val caption: String? = null,
+        val image: String? = null,
+        val date: String? = null,
+    ) : BaseNavigationDirection()
 }

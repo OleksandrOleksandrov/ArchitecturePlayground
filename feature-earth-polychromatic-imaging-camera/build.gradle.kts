@@ -32,7 +32,10 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.material3)
     implementation(libs.coil)
+    implementation(libs.androidx.navigation.compose)
+    implementation(project(":core-navigation"))
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
     implementation(project(":domain-epic"))
+    implementation(project(":presentation-core-model"))
 }

@@ -1,6 +1,9 @@
-package com.oleksandr.epic.model
+package com.oleksandr.presentation.core.model
 
-data class EPICUiModel(
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class EpicUiModel(
     val identifier: String? = null,
     val caption: String? = null,
     val image: String? = null,

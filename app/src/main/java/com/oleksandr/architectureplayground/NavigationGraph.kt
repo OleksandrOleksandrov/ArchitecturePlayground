@@ -6,7 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.oleksandr.epic.screen.EPICScreen
+import com.oleksandr.epic.details.navigation.epicDetailsNavigationGraph
+import com.oleksandr.epic.navigation.epicNavigationGraph
 import com.oleksandr.navigation.BaseNavigationDirection
 
 @Composable
@@ -24,9 +25,7 @@ fun NavigationGraph(
                 Text("main")
             }
         }
-
-        composable<BaseNavigationDirection.EPIC> {
-            EPICScreen()
-        }
+        epicNavigationGraph(navHostController)
+        epicDetailsNavigationGraph(navHostController)
     }
 }

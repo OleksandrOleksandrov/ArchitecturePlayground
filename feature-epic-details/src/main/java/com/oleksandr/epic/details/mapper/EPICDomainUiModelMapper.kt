@@ -1,4 +1,4 @@
-package com.oleksandr.epic.mapper
+package com.oleksandr.epic.details.mapper
 
 import android.icu.util.Calendar
 import com.oleksandr.common.extension.PATTERN_DATE_DIGITS_YEAR_MONTH_DAY

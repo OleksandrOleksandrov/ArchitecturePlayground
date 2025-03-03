@@ -47,6 +47,8 @@ dependencies {
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
     implementation(project(":feature-earth-polychromatic-imaging-camera"))
+    implementation(project(":feature-epic-details"))
+    implementation(project(":presentation-core-model"))
     implementation(project(":domain-epic"))
     implementation(project(":data-epic"))
 }
