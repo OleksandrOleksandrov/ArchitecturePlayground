@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "com.oleksandr.architectureplayground.data.preference.impl.model";
+option java_multiple_files = true;
+
+message PictureOfDayProtoModel {
+    string date = 1;
+    string explanation = 2;
+    string hdurl = 3;
+    string media_type = 4;
+    string title = 5;
+    string url = 6;
+}

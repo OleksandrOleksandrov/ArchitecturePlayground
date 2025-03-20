@@ -9,7 +9,7 @@ import com.oleksandr.common.mapper.BaseMapper
 import com.oleksandr.epic.model.EPICDomainModel
 import com.oleksandr.presentation.core.model.EpicUiModel
 
-class EPICDomainUiModelMapper : BaseMapper<EPICDomainModel, EpicUiModel> {
+object EPICDomainUiModelMapper : BaseMapper<EPICDomainModel, EpicUiModel> {
     override fun mapFrom(model: EpicUiModel) = with(model) {
         EPICDomainModel(
             identifier = identifier,

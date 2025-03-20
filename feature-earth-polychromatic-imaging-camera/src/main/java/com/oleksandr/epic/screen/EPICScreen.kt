@@ -11,8 +11,10 @@ fun EPICScreen(navigateToDetails: (EpicUiModel) -> Unit) {
 
     val viewModel: EPICViewModel = koinViewModel()
     val epicList = viewModel.epicList.collectAsStateWithLifecycle(emptyList())
+    val apod = viewModel.apod.collectAsStateWithLifecycle(null)
     EPICContent(
         modifier = Modifier,
+        pictureOfDayUiModel = apod.value,
         list = epicList.value ?: emptyList(),
         navigateToDetails = navigateToDetails
     )

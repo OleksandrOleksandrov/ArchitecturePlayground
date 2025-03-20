@@ -12,17 +12,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.oleksandr.epic.screen.composable.EPICListItem
+import com.oleksandr.epic.screen.composable.PictureOfDay
 import com.oleksandr.presentation.core.model.EpicUiModel
+import com.oleksandr.presentation.core.model.PictureOfDayUiModel
 
 @Composable
 fun EPICContent(
     modifier: Modifier,
+    pictureOfDayUiModel: PictureOfDayUiModel?,
     list: List<EpicUiModel>,
     navigateToDetails: (EpicUiModel) -> Unit,
 ) {
-    Box {
+    Box(
+        modifier = modifier,
+    ) {
         LazyColumn(
             content = {
+                item {
+                    pictureOfDayUiModel?.let {
+                        PictureOfDay(
+                            modifier = Modifier,
+                            pictureOfDayUiModel = it,
+                        )
+                    }
+                }
                 items(
                     items = list,
                     key = { it.identifier.orEmpty() }
@@ -31,46 +45,10 @@ fun EPICContent(
                         modifier = Modifier
                             .clickable { navigateToDetails(it) },
                         item = it,
-                        )
+                    )
                 }
             }
         )
-    }
-}
-
-@Composable
-fun EPICListItem(
-    modifier: Modifier,
-    item: EpicUiModel,
-) {
-    Box(
-        modifier = modifier.padding(8.dp),
-    ) {
-        ElevatedCard(
-            elevation = CardDefaults.cardElevation(
-                defaultElevation = 6.dp
-            ),
-            modifier = Modifier,
-        ) {
-            Column(
-                modifier = Modifier.padding(8.dp),
-            ) {
-                Text(
-                    item.caption.orEmpty() + item.date,
-                )
-//        AsyncImage(
-//            model = Uri.parse(item.image),
-//            contentScale = ContentScale.FillHeight,
-//            contentDescription = null,
-//            alignment = Alignment.CenterStart,
-////        placeholder = painterResource(id = R.drawable.ic_product_placeholder),
-//            modifier = Modifier
-//                .padding(start = 24.dp)
-//                .fillMaxWidth()
-//                .height(32.dp)
-//        )
-            }
-        }
     }
 }
 

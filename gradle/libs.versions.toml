@@ -42,6 +42,13 @@ room = "2.6.1"
 roomCommon = "2.6.1"
 roomKtx = "2.6.1"
 navigationCommonKtx = "2.8.5"
+datastoreVersion = "1.1.1"
+
+#protobuf
+protobufGradlePlugin = "0.9.4"
+protobufJavalite = "3.25.5"
+protobufKotlinLite = "3.21.5"
+#protobuf
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -93,6 +100,17 @@ room-common = { group = "androidx.room", name = "room-common", version.ref = "ro
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigationCommonKtx" }
 
+# https://mvnrepository.com/artifact/androidx.datastore/datastore
+datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastoreVersion" }
+#region Protobuf
+# https://mvnrepository.com/artifact/com.google.protobuf/protobuf-javalite
+protobuf-javalite = { group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobufJavalite" }
+# https://mvnrepository.com/artifact/com.google.protobuf/protobuf-kotlin-lite
+protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobufKotlinLite" }
+# https://mvnrepository.com/artifact/com.google.protobuf/protobuf-gradle-plugin
+protobuf-gradle-plugin = { group = "com.google.protobuf", name = "protobuf-gradle-plugin", version.ref = "protobufGradlePlugin" }
+#endregion Protobuf
+
 [bundles]
 #implement compose-bom platform first
 koin = ["koin.core", "koin.android", "koin.android.compose"]
@@ -100,7 +118,7 @@ ktor = ["ktor.client.android", "ktor.client.negotiation", "ktor.client.serializa
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.1.0" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.24" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 android-app-module-conventions = { id = "com.oleksandr.android.application" }

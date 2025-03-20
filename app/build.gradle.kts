@@ -50,5 +50,9 @@ dependencies {
     implementation(project(":feature-epic-details"))
     implementation(project(":presentation-core-model"))
     implementation(project(":domain-epic"))
+    implementation(project(":domain-picture-of-day"))
     implementation(project(":data-epic"))
+    implementation(project(":data-astronomy-picture-of-day"))
+    implementation(project(":data-preference"))
+    implementation(project(":data-preference:impl"))
 }

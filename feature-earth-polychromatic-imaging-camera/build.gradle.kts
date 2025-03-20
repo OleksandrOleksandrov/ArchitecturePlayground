@@ -37,5 +37,6 @@ dependencies {
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
     implementation(project(":domain-epic"))
+    implementation(project(":domain-picture-of-day"))
     implementation(project(":presentation-core-model"))
 }
