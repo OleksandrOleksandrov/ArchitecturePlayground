@@ -39,4 +39,13 @@ dependencies {
     implementation(project(":domain-epic"))
     implementation(project(":domain-picture-of-day"))
     implementation(project(":presentation-core-model"))
+    implementation(project(":feature-epic-details"))
+
+    //region Adaptive layout
+    implementation(libs.androidx.adaptive)
+    implementation(libs.androidx.material3.window.sizeclass)
+    implementation(libs.androidx.adaptive.layout)
+    implementation(libs.androidx.adaptive.navigation)
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+    //endregion Adaptive layout
 }

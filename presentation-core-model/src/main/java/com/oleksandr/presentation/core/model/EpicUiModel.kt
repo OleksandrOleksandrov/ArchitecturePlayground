@@ -1,11 +1,15 @@
 package com.oleksandr.presentation.core.model
 
-import kotlinx.serialization.Serializable
+import android.os.Parcelable
+import androidx.compose.runtime.Immutable
+import kotlinx.parcelize.Parcelize
 
-@Serializable
+@Immutable
+@Parcelize
 data class EpicUiModel(
     val identifier: String? = null,
     val caption: String? = null,
     val image: String? = null,
     val date: String? = null,
-)
+) : Parcelable
+

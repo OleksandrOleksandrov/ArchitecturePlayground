@@ -10,12 +10,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
-import com.oleksandr.epic.details.navigation.EpicDetailsDirections
+import com.oleksandr.presentation.core.model.EpicUiModel
 
 @Composable
 fun EpicDetailsContent(
     modifier: Modifier,
-    item: EpicDetailsDirections.EpicDetails,
+    item: EpicUiModel,
 ) {
     Box {
         Column(
