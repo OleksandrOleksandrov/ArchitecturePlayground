@@ -33,5 +33,22 @@ gradlePlugin {
             id = "com.oleksandr.android.koin"
             implementationClass = "KoinConventionPlugin"
         }
+
+        register("androidTest") {
+            id = "com.oleksandr.android.test"
+            implementationClass = "AndroidTestConventionPlugin"
+        }
+
+        register("kotlinTest") {
+            id = "com.oleksandr.kotlin.test"
+            implementationClass = "KotlinTestConventionPlugin"
+        }
     }
 }
+
+// Necessary for context receiver
+//tasks.withType<KotlinCompile>().configureEach {
+//    kotlinOptions {
+//        freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
+//    }
+//}

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.koin.conventions)
+    alias(libs.plugins.kotlin.test.conventions)
     id("com.google.protobuf") version "0.9.4" // TODO replace with plugin protobuf-gradle-plugin
 }
 
