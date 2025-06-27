@@ -14,12 +14,12 @@ fun NavGraphBuilder.epicNavigationGraph(
         startDestination = EpicDirections.Epic,
     ) {
         composable<EpicDirections.Epic> {
-            EPICScreen { moddel ->
+            EPICScreen { model ->
                 navController.navigate(BaseNavigationDirection.EpicDetails(
-                    moddel.identifier,
-                    moddel.caption,
-                    moddel.image,
-                    moddel.date,
+                    identifier = model.identifier,
+                    caption = model.caption,
+                    image = model.image,
+                    date = model.date,
                 ))
             }
         }

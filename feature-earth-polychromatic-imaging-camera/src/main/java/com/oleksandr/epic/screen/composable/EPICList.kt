@@ -1,6 +1,7 @@
 package com.oleksandr.epic.screen.composable
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
@@ -12,6 +13,7 @@ import com.oleksandr.presentation.core.model.PictureOfDayUiModel
 @Composable
 internal fun EPICList(
     modifier: Modifier,
+    paddingValues: PaddingValues,
     lazyState: LazyListState,
     pictureOfDayUiModel: PictureOfDayUiModel?,
     list: List<EpicUiModel>,
@@ -19,6 +21,7 @@ internal fun EPICList(
 ) {
     LazyColumn(
         modifier = modifier,
+        contentPadding = paddingValues,
         state = lazyState,
         content = {
             item {
