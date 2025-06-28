@@ -1,6 +1,7 @@
 package com.oleksandr.epic.screen
 
 import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -16,7 +17,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import com.oleksandr.epic.details.screen.EpicDetailsContent
 import com.oleksandr.epic.screen.composable.EPICList
 import com.oleksandr.presentation.core.model.EpicUiModel
@@ -30,7 +30,7 @@ fun EPICContent(
     list: List<EpicUiModel>,
     navigateToDetails: (EpicUiModel) -> Unit,
 ) {
-    val activity = LocalContext.current as Activity
+    val activity = LocalActivity.current as Activity
 
     val windowSize = calculateWindowSizeClass(activity = activity)
 
