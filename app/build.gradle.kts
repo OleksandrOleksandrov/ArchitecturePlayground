@@ -49,6 +49,7 @@ dependencies {
     implementation(project(":feature-earth-polychromatic-imaging-camera"))
     implementation(project(":feature-epic-details"))
     implementation(project(":presentation-core-model"))
+    implementation(project(":presentation-core-platform"))
     implementation(project(":domain-epic"))
     implementation(project(":domain-picture-of-day"))
     implementation(project(":data-epic"))

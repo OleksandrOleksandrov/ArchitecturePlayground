@@ -34,6 +34,7 @@ dependencies {
     implementation(libs.coil)
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
+    implementation(project(":presentation-core-platform"))
     implementation(project(":core-navigation"))
     implementation(project(":domain-epic"))
     implementation(project(":presentation-core-model"))

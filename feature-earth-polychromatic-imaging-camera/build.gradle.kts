@@ -34,6 +34,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.androidx.navigation.compose)
     implementation(project(":core-navigation"))
+    implementation(project(":presentation-core-platform"))
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
     implementation(project(":domain-epic"))
