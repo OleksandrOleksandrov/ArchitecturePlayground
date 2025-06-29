@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.oleksandr.architectureplayground.ui.theme.ArchitecturePlaygroundTheme
 import com.oleksandr.navigation.BaseNavigationDirection
+import com.oleksandr.presentation.styling.theme.AppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             navHostController = rememberNavController()
             navHostController?.let {
-                ArchitecturePlaygroundTheme {
+                AppTheme {
                     NavigationGraph(
                         navHostController = it,
                         startDestination = BaseNavigationDirection.EPIC,
@@ -47,7 +47,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ArchitecturePlaygroundTheme {
+    AppTheme {
         Greeting("Android")
     }
 }

@@ -50,6 +50,7 @@ dependencies {
     implementation(project(":feature-epic-details"))
     implementation(project(":presentation-core-model"))
     implementation(project(":presentation-core-platform"))
+    implementation(project(":presentation-core-styling"))
     implementation(project(":domain-epic"))
     implementation(project(":domain-picture-of-day"))
     implementation(project(":data-epic"))

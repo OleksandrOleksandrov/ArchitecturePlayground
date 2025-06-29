@@ -35,12 +35,14 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(project(":core-navigation"))
     implementation(project(":presentation-core-platform"))
+    implementation(project(":presentation-core-styling"))
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
     implementation(project(":domain-epic"))
     implementation(project(":domain-picture-of-day"))
     implementation(project(":presentation-core-model"))
     implementation(project(":feature-epic-details"))
+    implementation(libs.androidx.ui.tooling.preview)
 
     //region Adaptive layout
     implementation(libs.androidx.adaptive)
