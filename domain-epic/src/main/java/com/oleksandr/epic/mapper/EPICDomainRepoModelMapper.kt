@@ -4,7 +4,7 @@ import com.oleksandr.common.mapper.BaseMapper
 import com.oleksandr.epic.model.EPICDomainModel
 import com.oleksandr.epic.model.EPICRepoModel
 
-class EPICDomainRepoModelMapper : BaseMapper<EPICDomainModel, EPICRepoModel> {
+object EPICDomainRepoModelMapper : BaseMapper<EPICDomainModel, EPICRepoModel> {
     override fun mapTo(model: EPICDomainModel) = with(model) {
         EPICRepoModel(
             identifier = identifier,

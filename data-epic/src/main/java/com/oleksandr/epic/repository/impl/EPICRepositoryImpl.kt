@@ -4,7 +4,6 @@ import com.oleksandr.common.extension.withNullableListMapper
 import com.oleksandr.database.source.datasource.EPICDbDataSource
 import com.oleksandr.epic.mapper.EPICDbModelMapper
 import com.oleksandr.epic.mapper.EPICDbRepoModelMapper
-import com.oleksandr.epic.mapper.EPICRepoModelMapper
 import com.oleksandr.epic.model.EPICNetModel
 import com.oleksandr.epic.model.EPICRepoModel
 import com.oleksandr.epic.repository.EPICRepository
@@ -14,8 +13,6 @@ import kotlinx.coroutines.flow.Flow
 
 class EPICRepositoryImpl(
     private val epicNetSource: EPICNetSource,
-    private val epicModelMapper: EPICRepoModelMapper, // TODO review
-    private val epicDbModelMapper: EPICDbModelMapper,
     private val ePICDbRepoModelMapper: EPICDbRepoModelMapper,
     private val dbSource: EPICDbDataSource,
 ) : EPICRepository {
@@ -24,7 +21,7 @@ class EPICRepositoryImpl(
 
     override suspend fun updateData() {
         dbSource.insert(
-            epicDbModelMapper.mapListFrom(
+            EPICDbModelMapper.mapListFrom(
                 epicNetSource.fetchEpic().body<List<EPICNetModel>>()
             )
         )

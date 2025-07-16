@@ -1,8 +1,6 @@
 package com.oleksandr.epic.di
 
-import com.oleksandr.epic.mapper.EPICDbModelMapper
 import com.oleksandr.epic.mapper.EPICDbRepoModelMapper
-import com.oleksandr.epic.mapper.EPICRepoModelMapper
 import com.oleksandr.epic.repository.EPICRepository
 import com.oleksandr.epic.repository.impl.EPICRepositoryImpl
 import com.oleksandr.epic.source.EPICNetSource
@@ -14,7 +12,5 @@ import org.koin.dsl.module
 val dataEpicModule = module {
     single<EPICNetSource> { EPICNetSourceImpl(get()) }
     singleOf(::EPICRepositoryImpl) bind EPICRepository::class
-    single { EPICRepoModelMapper() }
-    single { EPICDbModelMapper() }
     single { EPICDbRepoModelMapper() }
 }
