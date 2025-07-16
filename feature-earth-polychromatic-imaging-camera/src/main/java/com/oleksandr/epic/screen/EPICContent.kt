@@ -12,13 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.oleksandr.epic.details.screen.EpicDetailsContent
 import com.oleksandr.epic.screen.composable.EPICList
 import com.oleksandr.presentation.core.model.EpicUiModel
 import com.oleksandr.presentation.core.model.PictureOfDayUiModel
 import com.oleksandr.presentation.styling.theme.AppTheme
+import com.oleksandr.presentation.styling.theme.core.Theme
 
 @Composable
 fun EPICContent(
@@ -37,7 +37,7 @@ fun EPICContent(
     Scaffold(
         modifier = modifier,
         contentWindowInsets = WindowInsets.safeDrawing,
-        containerColor = Color.DarkGray,
+        containerColor = Theme.color.themeNColor.n50,
     ) { scaffoldPaddingValues ->
         Box(
             modifier = Modifier
