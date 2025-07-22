@@ -15,18 +15,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.oleksandr.epic.details.screen.EpicDetailsContent
 import com.oleksandr.epic.screen.composable.EPICList
+import com.oleksandr.epic.screen.contract.ViewIntent
+import com.oleksandr.epic.screen.contract.ViewState
 import com.oleksandr.presentation.core.model.EpicUiModel
 import com.oleksandr.presentation.core.model.PictureOfDayUiModel
 import com.oleksandr.presentation.styling.theme.AppTheme
 import com.oleksandr.presentation.styling.theme.core.Theme
 
 @Composable
-fun EPICContent(
+internal fun EPICContent(
     modifier: Modifier,
     windowWidthSizeClass: WindowWidthSizeClass,
-    pictureOfDayUiModel: PictureOfDayUiModel?,
-    list: List<EpicUiModel>,
-    navigateToDetails: (EpicUiModel) -> Unit,
+    state: ViewState,
+    onIntent: (ViewIntent) -> Unit = {},
 ) {
 
     val selected = rememberSaveable { mutableStateOf<EpicUiModel?>(null) }
@@ -50,8 +51,8 @@ fun EPICContent(
                                 .weight(if (windowWidthSizeClass == WindowWidthSizeClass.Medium) smallWeight else bigWeight),
                             paddingValues = scaffoldPaddingValues,
                             lazyState = listState,
-                            pictureOfDayUiModel = pictureOfDayUiModel,
-                            list = list,
+                            pictureOfDayUiModel = state.pictureUiState,
+                            list = state.epicList,
                             onClick = {
                                 selected.value = it
                             }
@@ -75,11 +76,11 @@ fun EPICContent(
                         modifier = Modifier,
                         paddingValues = scaffoldPaddingValues,
                         lazyState = listState,
-                        pictureOfDayUiModel = pictureOfDayUiModel,
-                        list = list,
+                        pictureOfDayUiModel = state.pictureUiState,
+                        list = state.epicList,
                         onClick = {
                             selected.value = it
-                            navigateToDetails(it)
+                            onIntent(ViewIntent.OnEpicItemTappedIntent(it))
                         }
                     )
             }
@@ -95,9 +96,10 @@ private fun EPICContentMediumWindowSizePreview() {
         EPICContent(
             modifier = Modifier,
             windowWidthSizeClass = WindowWidthSizeClass.Medium,
-            pictureOfDayUiModel = pictureOfDayUiModel,
-            list = mockList,
-            navigateToDetails = {},
+            state = ViewState(
+                epicList = mockList,
+                pictureUiState = pictureOfDayUiModel,
+            ),
         )
     }
 }
@@ -109,9 +111,10 @@ private fun EPICContentCompactWindowSizePreview() {
         EPICContent(
             modifier = Modifier,
             windowWidthSizeClass = WindowWidthSizeClass.Compact,
-            pictureOfDayUiModel = pictureOfDayUiModel,
-            list = mockList,
-            navigateToDetails = {},
+            state = ViewState(
+                epicList = mockList,
+                pictureUiState = pictureOfDayUiModel,
+            ),
         )
     }
 }

@@ -13,11 +13,10 @@ import kotlinx.coroutines.flow.Flow
 
 class EPICRepositoryImpl(
     private val epicNetSource: EPICNetSource,
-    private val ePICDbRepoModelMapper: EPICDbRepoModelMapper,
     private val dbSource: EPICDbDataSource,
 ) : EPICRepository {
     override val dataList: Flow<List<EPICRepoModel>?> =
-        dbSource.getFlow().withNullableListMapper(ePICDbRepoModelMapper)
+        dbSource.getFlow().withNullableListMapper(EPICDbRepoModelMapper)
 
     override suspend fun updateData() {
         dbSource.insert(
@@ -26,4 +25,8 @@ class EPICRepositoryImpl(
             )
         )
     }
+
+    override suspend fun fetchData(): List<EPICRepoModel>? =
+        dbSource.get()?.map(EPICDbRepoModelMapper::mapTo)
+
 }

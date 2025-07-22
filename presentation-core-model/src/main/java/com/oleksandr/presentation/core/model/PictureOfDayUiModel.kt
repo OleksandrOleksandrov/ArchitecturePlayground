@@ -1,8 +1,11 @@
 package com.oleksandr.presentation.core.model
 
-import kotlinx.serialization.Serializable
+import android.os.Parcelable
+import androidx.compose.runtime.Immutable
+import kotlinx.parcelize.Parcelize
 
-@Serializable
+@Immutable
+@Parcelize
 data class PictureOfDayUiModel(
     val date: String,
     val explanation: String,
@@ -10,4 +13,4 @@ data class PictureOfDayUiModel(
     val mediaType: String,
     val title: String,
     val url: String
-)
+) : Parcelable
