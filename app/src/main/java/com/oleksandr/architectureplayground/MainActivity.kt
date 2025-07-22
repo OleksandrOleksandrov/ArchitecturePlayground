@@ -10,12 +10,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.oleksandr.apod.usecase.UpdateAPODUseCase
 import com.oleksandr.navigation.BaseNavigationDirection
 import com.oleksandr.presentation.styling.theme.AppTheme
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
     private val viewModel: ViewModel by viewModel()
+    val updateAPODUseCase: UpdateAPODUseCase by inject()
 
     private var navHostController: NavHostController? = null
     override fun onCreate(savedInstanceState: Bundle?) {
