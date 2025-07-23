@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.oleksandr.domain.epic"
+    namespace = "com.oleksandr.common.domain"
     compileSdk = libs.versions.app.compileSdk.get().toInt()
 
     defaultConfig {
@@ -42,6 +42,4 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(project(":common-mapper"))
-    implementation(project(":common-domain"))
-    implementation(project(":data-epic"))
 }
