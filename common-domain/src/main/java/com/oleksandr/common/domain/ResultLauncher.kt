@@ -1,4 +1,4 @@
-package com.oleksandr.epic
+package com.oleksandr.common.domain
 
 typealias Optional = Result<Unit>
 

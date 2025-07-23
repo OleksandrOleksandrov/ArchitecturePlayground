@@ -42,5 +42,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(project(":common-mapper"))
+    implementation(project(":common-domain"))
     implementation(project(":data-epic"))
 }

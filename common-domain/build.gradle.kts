@@ -1,11 +1,14 @@
 plugins {
+    alias(libs.plugins.android.koin.conventions)
+
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
 }
 
 android {
-    namespace = "com.oleksandr.data.preference"
+    namespace = "com.oleksandr.common.domain"
     compileSdk = libs.versions.app.compileSdk.get().toInt()
 
     defaultConfig {
@@ -15,6 +18,7 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+
     buildFeatures {
         buildConfig = true
     }
@@ -22,6 +26,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -34,7 +39,7 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
+    implementation(project(":common-mapper"))
 }

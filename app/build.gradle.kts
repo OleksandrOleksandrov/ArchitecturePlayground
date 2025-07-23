@@ -47,21 +47,32 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(project(":network"))
-    implementation(project(":data-database"))
-    implementation(project(":data-database:impl"))
-    implementation(project(":core-navigation"))
+    // Common modules
     implementation(project(":common-kotlin"))
     implementation(project(":common-mapper"))
+    implementation(project(":common-domain"))
+
+    // Data modules
+    implementation(project(":data-database"))
+    implementation(project(":data-database:impl"))
+
+    implementation(project(":data-preference"))
+    implementation(project(":data-preference:impl"))
+
+    implementation(project(":data-epic"))
+    implementation(project(":data-astronomy-picture-of-day"))
+
+    // Domain modules
+    implementation(project(":domain-epic"))
+    implementation(project(":domain-picture-of-day"))
+
+    // Feature modules
     implementation(project(":feature-earth-polychromatic-imaging-camera"))
     implementation(project(":feature-epic-details"))
+
+    implementation(project(":network"))
+    implementation(project(":core-navigation"))
     implementation(project(":presentation-core-model"))
     implementation(project(":presentation-core-platform"))
     implementation(project(":presentation-core-styling"))
-    implementation(project(":domain-epic"))
-    implementation(project(":domain-picture-of-day"))
-    implementation(project(":data-epic"))
-    implementation(project(":data-astronomy-picture-of-day"))
-    implementation(project(":data-preference"))
-    implementation(project(":data-preference:impl"))
 }
