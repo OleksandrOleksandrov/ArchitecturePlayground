@@ -6,15 +6,15 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.oleksandr.epic.details.navigation.EpicDetailsDirections
-import com.oleksandr.presentation.core.model.EpicUiModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.oleksandr.presentation.styling.theme.core.Theme
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun EpicDetailsScreen(model: EpicDetailsDirections.EpicDetails) {
+fun EpicDetailsScreen() {
 
     val viewModel: EpicDetailsViewModel = koinViewModel()
+    val state = viewModel.viewState.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = Modifier,
@@ -23,12 +23,7 @@ fun EpicDetailsScreen(model: EpicDetailsDirections.EpicDetails) {
     ) { scaffoldPaddingValues ->
         EpicDetailsContent(
             modifier = Modifier.padding(scaffoldPaddingValues),
-            EpicUiModel(
-                identifier = model.identifier,
-                caption = model.caption,
-                image = model.image,
-                date = model.date,
-            ),
+            state = state.value,
         )
     }
 }
