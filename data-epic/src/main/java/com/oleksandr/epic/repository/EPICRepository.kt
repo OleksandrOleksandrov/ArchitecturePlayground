@@ -9,4 +9,6 @@ interface EPICRepository {
     suspend fun updateData()
 
     suspend fun fetchData(): List<EPICRepoModel>?
+
+    suspend fun getEpicById(id: String): EPICRepoModel?
 }

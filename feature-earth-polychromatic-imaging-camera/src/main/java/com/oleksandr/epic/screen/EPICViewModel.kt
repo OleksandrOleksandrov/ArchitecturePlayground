@@ -56,9 +56,9 @@ internal class EPICViewModel(
     private fun Flow<ViewIntent>.toPartialStateChange(): Flow<PartialStateChange> {
         val loadInfoFlow = filterIsInstance<ViewIntent.OnStartIntent>()
             .transformLatest { _ ->
-                ePICDataListUseCase().onSuccess {
+                ePICDataListUseCase().onSuccess { list ->
                     updateAPODUseCase()
-                    emit(PartialStateChange.EpicList.SetData(it?.map {
+                    emit(PartialStateChange.EpicList.SetData(list?.map {
                         EPICDomainUiModelMapper.mapTo(it)
                     } ?: emptyList()))
                 }.onFailure {
@@ -102,5 +102,4 @@ internal class EPICViewModel(
             else -> null
         }
     }
-
 }

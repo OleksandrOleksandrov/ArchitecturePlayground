@@ -13,7 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.oleksandr.epic.details.screen.EpicDetailsContent
+import com.oleksandr.epic.details.screen.composable.EpicDetailsView
 import com.oleksandr.epic.screen.composable.EPICList
 import com.oleksandr.epic.screen.contract.ViewIntent
 import com.oleksandr.epic.screen.contract.ViewState
@@ -63,9 +63,9 @@ internal fun EPICContent(
                                 .weight(if (windowWidthSizeClass == WindowWidthSizeClass.Medium) bigWeight else smallWeight),
                         ) {
                             selected.value?.let {
-                                EpicDetailsContent(
+                                EpicDetailsView(
                                     modifier = Modifier,
-                                    item = it,
+                                    model = it,
                                 )
                             }
                         }

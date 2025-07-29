@@ -1,5 +1,6 @@
 package com.oleksandr.epic.repository.impl
 
+import android.R.attr.identifier
 import com.oleksandr.common.extension.withNullableListMapper
 import com.oleksandr.database.source.datasource.EPICDbDataSource
 import com.oleksandr.epic.mapper.EPICDbModelMapper
@@ -18,6 +19,8 @@ class EPICRepositoryImpl(
     override val dataList: Flow<List<EPICRepoModel>?> =
         dbSource.getFlow().withNullableListMapper(EPICDbRepoModelMapper)
 
+    private var tempCache: List<EPICRepoModel>? = mutableListOf()
+
     override suspend fun updateData() {
         dbSource.insert(
             EPICDbModelMapper.mapListFrom(
@@ -26,7 +29,24 @@ class EPICRepositoryImpl(
         )
     }
 
-    override suspend fun fetchData(): List<EPICRepoModel>? =
-        dbSource.get()?.map(EPICDbRepoModelMapper::mapTo)
+    override suspend fun fetchData(): List<EPICRepoModel>? {
+        tempCache = epicNetSource.fetchEpic().body<List<EPICNetModel>>().map {
+            EPICRepoModel(
+                identifier = it.identifier,
+                caption = it.caption,
+                image = it.image,
+                date = it.date,
+            )
+        } //TODO change temp solution
+        return tempCache
+    }
+
+
+    override suspend fun getEpicById(id: String): EPICRepoModel? {
+        tempCache?.find { it.identifier == id }?.let {
+            return it
+        }
+        return null
+    }
 
 }
