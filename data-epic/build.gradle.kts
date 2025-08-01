@@ -44,6 +44,7 @@ dependencies {
 //    implementation(libs.gson)
     implementation(libs.bundles.ktor)
     implementation(project(":common-mapper"))
+    implementation(project(":common-core"))
     implementation(project(":data-database"))
     implementation(project(":network"))
 }

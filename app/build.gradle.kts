@@ -49,6 +49,8 @@ dependencies {
 
     // Common modules
     implementation(project(":common-kotlin"))
+    implementation(project(":common-core"))
+    implementation(project(":common-exception"))
     implementation(project(":common-mapper"))
     implementation(project(":common-domain"))
 
