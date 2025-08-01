@@ -25,6 +25,8 @@ include(":app")
 
 // Common modules
 include(":common-kotlin")
+include(":common-core")
+include(":common-exception")
 include(":common-mapper")
 include(":common-domain")
 

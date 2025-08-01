@@ -9,6 +9,7 @@ import com.oleksandr.epic.model.EPICNetModel
 import com.oleksandr.epic.model.EPICRepoModel
 import com.oleksandr.epic.repository.EPICRepository
 import com.oleksandr.epic.source.EPICNetSource
+import com.oleksandr.network.apiCall
 import io.ktor.client.call.body
 import kotlinx.coroutines.flow.Flow
 
@@ -30,14 +31,21 @@ class EPICRepositoryImpl(
     }
 
     override suspend fun fetchData(): List<EPICRepoModel>? {
-        tempCache = epicNetSource.fetchEpic().body<List<EPICNetModel>>().map {
-            EPICRepoModel(
-                identifier = it.identifier,
-                caption = it.caption,
-                image = it.image,
-                date = it.date,
-            )
-        } //TODO change temp solution
+        apiCall {
+            epicNetSource.fetchEpic()
+        }.onSuccess { response ->
+            tempCache = response.body<List<EPICNetModel>>().map {
+                EPICRepoModel(
+                    identifier = it.identifier,
+                    caption = it.caption,
+                    image = it.image,
+                    date = it.date,
+                )
+            }
+        }.onFailure {
+            // Handle failure if needed
+        }
+         //TODO change temp solution
         return tempCache
     }
 
