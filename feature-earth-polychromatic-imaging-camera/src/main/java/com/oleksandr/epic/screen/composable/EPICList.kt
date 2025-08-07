@@ -7,8 +7,8 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.oleksandr.common.core.preview.AppPreview
 import com.oleksandr.presentation.core.model.EpicUiModel
 import com.oleksandr.presentation.core.model.PictureOfDayUiModel
 import com.oleksandr.presentation.styling.theme.AppTheme
@@ -50,7 +50,7 @@ internal fun EPICList(
 }
 
 @Composable
-@Preview
+@AppPreview
 private fun EPICListPreview() {
     AppTheme {
         EPICList(
