@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.oleksandr.common.core.preview.AppPreview
 import com.oleksandr.epic.details.screen.composable.EpicDetailsView
 import com.oleksandr.epic.screen.composable.EPICList
 import com.oleksandr.epic.screen.contract.ViewIntent
@@ -90,7 +90,7 @@ internal fun EPICContent(
 }
 
 @Composable
-@Preview
+@AppPreview
 private fun EPICContentMediumWindowSizePreview() {
     AppTheme {
         EPICContent(
@@ -105,7 +105,7 @@ private fun EPICContentMediumWindowSizePreview() {
 }
 
 @Composable
-@Preview
+@AppPreview
 private fun EPICContentCompactWindowSizePreview() {
     AppTheme {
         EPICContent(

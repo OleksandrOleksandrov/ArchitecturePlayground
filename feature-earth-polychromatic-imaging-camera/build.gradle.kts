@@ -31,6 +31,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.coil)
     implementation(libs.androidx.navigation.compose)
+    implementation(project(":common-core"))
     implementation(project(":core-navigation"))
     implementation(project(":presentation-core-platform"))
     implementation(project(":presentation-core-styling"))
