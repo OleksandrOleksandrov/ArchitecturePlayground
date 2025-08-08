@@ -6,7 +6,7 @@ import org.gradle.api.tasks.testing.Test
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.withType
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 /**
  * A plugin for configuring Android test projects.
@@ -46,9 +46,9 @@ class AndroidTestConventionPlugin : Plugin<Project> {
 //            +"dev.devlight.skeleton.convention.di"
 //        }
 
-        target.tasks.withType<KotlinCompile>().configureEach {
-            kotlinOptions {
-                freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
+        target.tasks.withType<KotlinCompilationTask<*>>().configureEach {
+            compilerOptions {
+                freeCompilerArgs.add("-Xcontext-receivers")
             }
         }
 
