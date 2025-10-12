@@ -7,5 +7,5 @@ internal sealed interface ViewIntent : MviIntent {
     /**
      * Represents the initial intent to load the data when init.
      */
-    data object OnStartIntent : ViewIntent
+    data class OnStartIntent(val id: String) : ViewIntent
 }

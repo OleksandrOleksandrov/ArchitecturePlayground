@@ -1,9 +1,5 @@
 package com.oleksandr.epic.screen
 
-import android.app.Activity
-import androidx.activity.compose.LocalActivity
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
@@ -15,7 +11,6 @@ import com.oleksandr.presentation.core.platform.base.composable.rememberFlowWith
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
 fun EPICScreen(onAction: (EpicUiModel) -> Unit) {
 
@@ -24,13 +19,7 @@ fun EPICScreen(onAction: (EpicUiModel) -> Unit) {
     val state = viewModel.viewState.collectAsStateWithLifecycle()
     val eventFlow = rememberFlowWithLifecycle(viewModel.singleEvent)
 
-    val activity = LocalActivity.current as Activity
-
-    val windowSize = calculateWindowSizeClass(activity = activity)
-
-    val windowWidthClass = windowSize.widthSizeClass
-
-    LaunchedEffect(Unit) {
+    LaunchedEffect(eventFlow) {
         eventFlow.collect { event ->
             when (event) {
                 is ViewEvent.ShowError -> {
@@ -43,7 +32,6 @@ fun EPICScreen(onAction: (EpicUiModel) -> Unit) {
 
     EPICContent(
         modifier = Modifier,
-        windowWidthSizeClass = windowWidthClass,
         state = state.value,
         onIntent = { intent ->
             scope.launch {

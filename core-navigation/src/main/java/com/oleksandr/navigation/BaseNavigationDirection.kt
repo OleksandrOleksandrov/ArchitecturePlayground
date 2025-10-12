@@ -1,9 +1,10 @@
 package com.oleksandr.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed class BaseNavigationDirection {
+sealed class BaseNavigationDirection : NavKey {
 
     @Serializable
     data object Main : BaseNavigationDirection()
