@@ -3,12 +3,12 @@ package com.oleksandr.epic.details.screen
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.oleksandr.epic.details.mapper.EPICDomainUiModelMapper
 import com.oleksandr.epic.details.navigation.EpicDetailsDirections
 import com.oleksandr.epic.details.screen.contract.PartialStateChange
 import com.oleksandr.epic.details.screen.contract.ViewEvent
 import com.oleksandr.epic.details.screen.contract.ViewIntent
 import com.oleksandr.epic.details.screen.contract.ViewState
+import com.oleksandr.epic.mapper.EPICDomainUiModelMapper
 import com.oleksandr.epic.usecase.GetEPICItemByIdUseCase
 import com.oleksandr.presentation.core.platform.base.ext.stateWhileSubscribed
 import com.oleksandr.presentation.core.platform.base.viewmodel.BaseMviViewModel

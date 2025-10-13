@@ -1,4 +1,4 @@
-package com.oleksandr.epic.details.mapper
+package com.oleksandr.epic.mapper
 
 import android.icu.util.Calendar
 import com.oleksandr.common.extension.PATTERN_DATE_DIGITS_YEAR_MONTH_DAY
@@ -25,7 +25,7 @@ object EPICDomainUiModelMapper : BaseMapper<EPICDomainModel, EpicUiModel> {
         EpicUiModel(
             identifier = identifier,
             caption = caption,
-            image = "https://api.nasa.gov/EPIC/archive/natural/${calendar.time.dateFrom(PATTERN_DATE_SLASHED_DIGITS_FULL_FORMAT)}/thumbs/${image}.jpg?api_key=3SXKZBBq6vEmA7yamongiBY66cvnlx1JbeeDOtZu",
+            image = "https://epic.gsfc.nasa.gov/archive/natural/${calendar.time.dateFrom(PATTERN_DATE_SLASHED_DIGITS_FULL_FORMAT)}/thumbs/${image}.jpg?api_key=3SXKZBBq6vEmA7yamongiBY66cvnlx1JbeeDOtZu",
             date = date,
         )
     }
