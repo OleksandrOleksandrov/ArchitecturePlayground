@@ -6,7 +6,7 @@ object HttpRoutes {
 
     // Auth region
     // TODO replace with dynamic api_key
-    const val EPIC_PICTURE_LIST = "$NASA_BASE_URL/EPIC/api/natural?api_key=3SXKZBBq6vEmA7yamongiBY66cvnlx1JbeeDOtZu"
+    const val EPIC_PICTURE_LIST = "https://epic.gsfc.nasa.gov/api/natural?api_key=3SXKZBBq6vEmA7yamongiBY66cvnlx1JbeeDOtZu"
     // APOD - Astronomy Picture of the Day
     // TODO replace with dynamic api_key
     const val APOD = "$NASA_BASE_URL/planetary/apod?api_key=3SXKZBBq6vEmA7yamongiBY66cvnlx1JbeeDOtZu"
