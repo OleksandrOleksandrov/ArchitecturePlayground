@@ -113,3 +113,6 @@ fabric.properties
 
 ** /.cxx
 .cxx/
+
+# secrets
+/configure/

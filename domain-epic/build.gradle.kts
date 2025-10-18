@@ -43,7 +43,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(project(":common-mapper"))
     implementation(project(":common-domain"))
-    implementation(project(":common-kotlin"))
     implementation(project(":data-epic"))
     implementation(project(":presentation-core-model"))
 }

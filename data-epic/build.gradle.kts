@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.bundles.ktor)
     implementation(project(":common-mapper"))
     implementation(project(":common-core"))
+    implementation(project(":common-kotlin"))
     implementation(project(":data-database"))
     implementation(project(":network"))
 }
