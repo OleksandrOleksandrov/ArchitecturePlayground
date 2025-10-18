@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.koin.conventions)
 
@@ -17,19 +20,33 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+    val properties = Properties().also {
+        it.load(
+            FileInputStream(
+                File(
+                    project.rootDir,
+                    "./configure/secrets/secrets.properties",
+                )
+            )
+        )
+    }
+    val nasaApiKey = properties.getProperty("NASA_API_KEY")
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             buildConfigField("String", "NASA_BASE_URL", "\"https://api.nasa.gov\"")
+            buildConfigField("String", "NASA_API_KEY", "\"$nasaApiKey\"")
         }
         getByName("debug") {
             buildConfigField("Boolean", "DEV_OPTIONS", "true")
             buildConfigField("String", "NASA_BASE_URL", "\"https://api.nasa.gov\"")
+            buildConfigField("String", "NASA_API_KEY", "\"$nasaApiKey\"")
         }
         create("staging") {
             buildConfigField("Boolean", "DEV_OPTIONS", "true")
             buildConfigField("String", "NASA_BASE_URL", "\"https://api.nasa.gov\"")
+            buildConfigField("String", "NASA_API_KEY", "\"$nasaApiKey\"")
         }
     }
 
