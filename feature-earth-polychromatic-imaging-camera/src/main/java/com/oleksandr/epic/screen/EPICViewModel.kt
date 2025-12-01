@@ -57,7 +57,13 @@ internal class EPICViewModel(
         val loadInfoFlow = filterIsInstance<ViewIntent.OnStartIntent>()
             .transformLatest { _ ->
                 ePICDataListUseCase().onSuccess { list ->
-                    updateAPODUseCase()
+                    launch(
+                        onError = {
+                           // TODO Handle error.
+                        }
+                    ) {
+                        updateAPODUseCase()
+                    }
                     emit(PartialStateChange.EpicList.SetData(list?.map {
                         EPICDomainUiModelMapper.mapTo(it)
                     } ?: emptyList()))
@@ -75,7 +81,13 @@ internal class EPICViewModel(
                         )
                     }
                 }
-                updateAPODUseCase()
+                launch(
+                    onError = {
+                        // TODO Handle error.
+                    }
+                ) {
+                    updateAPODUseCase()
+                }
             }
 
         val onEpicTappedFlow = filterIsInstance<ViewIntent.OnEpicItemTappedIntent>().mapLatest {
