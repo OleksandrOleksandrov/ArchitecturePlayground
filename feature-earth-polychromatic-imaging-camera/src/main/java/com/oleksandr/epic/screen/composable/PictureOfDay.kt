@@ -35,7 +35,7 @@ fun PictureOfDay(
             ) {
                 with(pictureOfDayUiModel) {
                     AsyncImage(
-                        model = thumbs?.toUri() ?: url.toUri(), // TODO test it out, for video it is thumbs for image it is url.
+                        model = thumbs ?: url, // TODO test it out, for video it is thumbs for image it is url.
                         contentScale = ContentScale.FillWidth,
                         contentDescription = null,
                         alignment = Alignment.CenterStart,
