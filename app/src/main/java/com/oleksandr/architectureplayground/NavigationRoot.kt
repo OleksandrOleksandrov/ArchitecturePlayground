@@ -1,5 +1,9 @@
 package com.oleksandr.architectureplayground
 
+import androidx.compose.animation.ContentTransform
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
@@ -26,6 +30,7 @@ fun NavigationRoot(
 
     NavDisplay(
         backStack = backStack,
+        modifier = modifier,
         entryDecorators = listOf(
             rememberSaveableStateHolderNavEntryDecorator(),
             rememberViewModelStoreNavEntryDecorator(),
@@ -34,7 +39,7 @@ fun NavigationRoot(
         entryProvider = { key ->
             when (key) {
                 is BaseNavigationDirection.Main -> NavEntry(key) {
-                    Box(modifier) {
+                    Box(Modifier) {
                         Text("main")
                     }
                 }
@@ -60,16 +65,33 @@ fun NavigationRoot(
                     metadata = TwoPaneScene.twoPane()
                 ) {
                     EpicDetailsScreen(
-                        modifier = modifier,
+                        modifier = Modifier,
                         identifier = key.identifier.orEmpty(),
                     )
                 }
 
                 else -> throw RuntimeException("Unknown destination")
             }
-        }
+        },
+        transitionSpec = { slideInFromRight() },
+        popTransitionSpec = { slideInFromLeft() },
+        predictivePopTransitionSpec = { slideInFromLeft() },
     )
 }
+
+/**
+ * Slide in from the left when navigating back.
+ */
+private fun slideInFromLeft(): ContentTransform =
+    slideInHorizontally(initialOffsetX = { -it }) togetherWith
+        slideOutHorizontally(targetOffsetX = { it })
+
+/**
+ * Slide in from right when navigation forward.
+ */
+private fun slideInFromRight(): ContentTransform =
+    slideInHorizontally(initialOffsetX = { it }) togetherWith
+        slideOutHorizontally(targetOffsetX = { -it })
 
 private fun NavBackStack<NavKey>.addDetail(detailRoute: BaseNavigationDirection.EpicDetails) {
     // Remove any existing detail routes, then add the new detail route
