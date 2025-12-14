@@ -7,7 +7,7 @@ import androidx.navigation3.scene.SceneStrategyScope
 import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowSizeClass.Companion.WIDTH_DP_MEDIUM_LOWER_BOUND
 
-class TwoPaneSceneStrategy<T : Any>(
+class ListWithDetailsSceneStrategy<T : Any>(
     val windowClass: WindowSizeClass,
 ) : SceneStrategy<T> {
 
@@ -22,16 +22,15 @@ class TwoPaneSceneStrategy<T : Any>(
         }
 
         return if (lastTwoEntries.size == 2 && hasTwoPaneKeys) {
-            val firstEntry = lastTwoEntries.first()
-            val secondEntry = lastTwoEntries.last()
+            val listEntry = lastTwoEntries.first()
 
             TwoPaneScene(
-                key = firstEntry.contentKey,
+                key = listEntry.contentKey,
                 previousEntries = entries.dropLast(1),
-                firstEntry = firstEntry,
-                secondEntry = secondEntry,
-                firstScreenWeight = 0.3f,
-                secondScreenWeight = 0.7f,
+                listEntry = listEntry,
+                detailsEntry = lastTwoEntries.last(),
+                listScreenWeight = 0.3f,
+                detailsScreenWeight = 0.7f,
             )
         } else {
             null
