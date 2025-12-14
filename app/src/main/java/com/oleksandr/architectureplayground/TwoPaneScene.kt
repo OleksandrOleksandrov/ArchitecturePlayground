@@ -11,14 +11,14 @@ import androidx.navigation3.scene.Scene
 class TwoPaneScene<T : Any>(
     override val key: Any,
     override val previousEntries: List<NavEntry<T>>,
-    val firstEntry: NavEntry<T>,
-    val secondEntry: NavEntry<T>,
-    val firstScreenWeight: Float,
-    val secondScreenWeight: Float,
+    val listEntry: NavEntry<T>,
+    val detailsEntry: NavEntry<T>,
+    val listScreenWeight: Float,
+    val detailsScreenWeight: Float,
 ) : Scene<T> {
 
     override val entries: List<NavEntry<T>>
-        get() = listOf(firstEntry, secondEntry)
+        get() = listOf(listEntry, detailsEntry)
 
     override val content: @Composable (() -> Unit)
         get() = {
@@ -26,15 +26,15 @@ class TwoPaneScene<T : Any>(
                 modifier = Modifier.fillMaxSize()
             ) {
                 Box(
-                    modifier = Modifier.weight(firstScreenWeight)
+                    modifier = Modifier.weight(listScreenWeight)
                 ) {
-                    firstEntry.Content()
+                    listEntry.Content()
                 }
 
                 Box(
-                    modifier = Modifier.weight(secondScreenWeight)
+                    modifier = Modifier.weight(detailsScreenWeight)
                 ) {
-                    secondEntry.Content()
+                    detailsEntry.Content()
                 }
             }
         }
