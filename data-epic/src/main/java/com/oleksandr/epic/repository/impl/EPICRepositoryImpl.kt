@@ -1,10 +1,10 @@
 package com.oleksandr.epic.repository.impl
 
-import android.R.attr.identifier
 import com.oleksandr.common.extension.withNullableListMapper
 import com.oleksandr.database.source.datasource.EPICDbDataSource
 import com.oleksandr.epic.mapper.EPICDbModelMapper
 import com.oleksandr.epic.mapper.EPICDbRepoModelMapper
+import com.oleksandr.epic.mapper.EPICRepoModelMapper
 import com.oleksandr.epic.model.EPICNetModel
 import com.oleksandr.epic.model.EPICRepoModel
 import com.oleksandr.epic.repository.EPICRepository
@@ -34,14 +34,7 @@ class EPICRepositoryImpl(
         apiCall {
             epicNetSource.fetchEpic()
         }.onSuccess { response ->
-            tempCache = response.body<List<EPICNetModel>>().map {
-                EPICRepoModel(
-                    identifier = it.identifier,
-                    caption = it.caption,
-                    image = it.image,
-                    date = it.date,
-                )
-            }
+            tempCache = response.body<List<EPICNetModel>>().map(EPICRepoModelMapper::mapTo)
         }.onFailure {
             // Handle failure if needed
         }

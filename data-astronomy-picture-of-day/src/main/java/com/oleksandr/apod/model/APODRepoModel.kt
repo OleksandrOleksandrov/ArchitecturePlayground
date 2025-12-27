@@ -7,4 +7,5 @@ data class APODRepoModel(
     val mediaType: String? = null,
     val title: String? = null,
     val url: String? = null,
+    val thumbs: String? = null,
 )

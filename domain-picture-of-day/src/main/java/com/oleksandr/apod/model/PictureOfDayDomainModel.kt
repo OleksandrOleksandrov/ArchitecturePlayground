@@ -6,5 +6,6 @@ data class PictureOfDayDomainModel(
     val hdurl: String,
     val mediaType: String,
     val title: String,
-    val url: String
+    val url: String,
+    val thumbs: String?,
 )

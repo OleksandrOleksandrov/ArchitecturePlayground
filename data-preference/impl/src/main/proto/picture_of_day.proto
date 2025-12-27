@@ -10,4 +10,5 @@ message PictureOfDayProtoModel {
     string media_type = 4;
     string title = 5;
     string url = 6;
+    string thumbs = 7;
 }

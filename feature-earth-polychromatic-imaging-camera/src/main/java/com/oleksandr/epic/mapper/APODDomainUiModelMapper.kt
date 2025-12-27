@@ -12,7 +12,8 @@ object APODDomainUiModelMapper : BaseMapper<PictureOfDayDomainModel, PictureOfDa
             hdurl = model.hdurl,
             mediaType = model.mediaType,
             title = model.title,
-            url = model.url
+            url = model.url,
+            thumbs = model.thumbs,
         )
 
 
@@ -23,6 +24,7 @@ object APODDomainUiModelMapper : BaseMapper<PictureOfDayDomainModel, PictureOfDa
             hdurl = model.hdurl,
             mediaType = model.mediaType,
             title = model.title,
-            url = model.url
+            url = model.url,
+            thumbs = model.thumbs,
         )
 }

@@ -9,7 +9,7 @@ object EPICRepoModelMapper : BaseMapper<EPICNetModel, EPICRepoModel> {
         EPICRepoModel(
             identifier = identifier,
             caption = caption,
-            image = image,
+            image = makeFullImageUrl(image, date),
             date = date,
         )
     }
