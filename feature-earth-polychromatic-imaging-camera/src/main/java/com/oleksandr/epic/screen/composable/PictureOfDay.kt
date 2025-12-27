@@ -21,7 +21,7 @@ fun PictureOfDay(
     modifier: Modifier = Modifier,
     pictureOfDayUiModel: PictureOfDayUiModel,
 ) {
-    val placeholder = android.R.drawable.ic_menu_gallery // TODO release placeholder
+    val placeholder = android.R.drawable.ic_menu_gallery // TODO replace placeholder
     Box(
         modifier = modifier.padding(8.dp),
     ) {
@@ -33,15 +33,17 @@ fun PictureOfDay(
             Column(
                 modifier = Modifier,
             ) {
-                AsyncImage(
-                    model = pictureOfDayUiModel.url.toUri(),
-                    contentScale = ContentScale.FillWidth,
-                    contentDescription = null,
-                    alignment = Alignment.CenterStart,
-                    placeholder = painterResource(id = placeholder),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
+                with(pictureOfDayUiModel) {
+                    AsyncImage(
+                        model = thumbs?.toUri() ?: url.toUri(), // TODO test it out, for video it is thumbs for image it is url.
+                        contentScale = ContentScale.FillWidth,
+                        contentDescription = null,
+                        alignment = Alignment.CenterStart,
+                        placeholder = painterResource(id = placeholder),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
             }
         }
     }

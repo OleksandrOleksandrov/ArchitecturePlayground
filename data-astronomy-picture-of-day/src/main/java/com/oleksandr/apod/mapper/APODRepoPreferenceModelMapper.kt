@@ -21,5 +21,6 @@ object APODRepoPreferenceModelMapper : BaseMapper<APODRepoModel, PictureOfDayPre
         mediaType = model.mediaType.orEmpty(),
         title = model.title.orEmpty(),
         url = model.url.orEmpty(),
+        thumbs = model.thumbs.orEmpty(),
     )
 }

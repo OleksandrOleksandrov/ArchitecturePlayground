@@ -12,6 +12,7 @@ object PictureOfDayPreferenceProtoMapper : BaseMapper<PictureOfDayPreferenceMode
         mediaType = model.mediaType,
         title = model.title,
         url = model.url,
+        thumbs = model.thumbs,
     )
 
     override fun mapTo(model: PictureOfDayPreferenceModel): PictureOfDayProtoModel = PictureOfDayProtoModel

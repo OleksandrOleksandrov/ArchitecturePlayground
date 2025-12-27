@@ -11,6 +11,7 @@ import kotlinx.serialization.Serializable
  * @property mediaType The media type of the picture.
  * @property title The title of the picture.
  * @property url The URL of the picture.
+ * @property thumbs The thumbs of the video.
  */
 @Serializable
 data class PictureOfDayPreferenceModel(
@@ -19,5 +20,6 @@ data class PictureOfDayPreferenceModel(
     val hdurl: String,
     val mediaType: String,
     val title: String,
-    val url: String
+    val url: String,
+    val thumbs: String,
 ) : BasePreferenceModel

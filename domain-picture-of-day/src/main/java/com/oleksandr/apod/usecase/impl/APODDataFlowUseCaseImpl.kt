@@ -17,7 +17,8 @@ class APODDataFlowUseCaseImpl(
             hdurl = it.hdurl.orEmpty(),
             mediaType = it.mediaType.orEmpty(),
             title = it.title.orEmpty(),
-            url = it.url.orEmpty()
+            url = it.url.orEmpty(),
+            thumbs = it.thumbs,
         )
     }
 }

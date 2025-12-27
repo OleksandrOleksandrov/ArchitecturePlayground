@@ -12,6 +12,7 @@ object APODNetPreferenceModelMapper : BaseMapper<APODNetModel, PictureOfDayPrefe
         mediaType = model.mediaType,
         title = model.title,
         url = model.url,
+        thumbs = model.thumbs,
     )
 
     override fun mapTo(model: APODNetModel): PictureOfDayPreferenceModel = PictureOfDayPreferenceModel(
@@ -21,5 +22,6 @@ object APODNetPreferenceModelMapper : BaseMapper<APODNetModel, PictureOfDayPrefe
         mediaType = model.mediaType.orEmpty(),
         title = model.title.orEmpty(),
         url = model.url.orEmpty(),
+        thumbs = model.thumbs.orEmpty()
     )
 }
