@@ -25,4 +25,10 @@ sealed class BaseNavigationDirection : NavKey {
         val image: String? = null,
         val date: String? = null,
     ) : BaseNavigationDirection()
+
+    /**
+     * Empty Epic Details
+     */
+    @Serializable
+    data object EpicEmptyDetails : BaseNavigationDirection()
 }

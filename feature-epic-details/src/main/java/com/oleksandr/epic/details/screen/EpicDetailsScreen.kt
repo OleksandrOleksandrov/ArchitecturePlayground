@@ -17,7 +17,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun EpicDetailsScreen(
     modifier: Modifier = Modifier,
-    identifier: String,
+    identifier: String? = null,
 ) {
 
     val viewModel: EpicDetailsViewModel = koinViewModel()
@@ -26,8 +26,8 @@ fun EpicDetailsScreen(
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(identifier) {
-        scope.launch { 
-            viewModel.processIntent(ViewIntent.OnStartIntent(identifier))
+        scope.launch {
+            identifier?.let { viewModel.processIntent(ViewIntent.OnStartIntent(it)) }
         }
     }
 
