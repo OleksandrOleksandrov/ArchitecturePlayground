@@ -66,7 +66,7 @@ fun NavigationRoot(
                 ) {
                     EpicDetailsScreen(
                         modifier = Modifier,
-                        identifier = key.identifier.orEmpty(),
+                        identifier = key.identifier,
                     )
                 }
 
