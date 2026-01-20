@@ -13,8 +13,6 @@ class TwoPaneScene<T : Any>(
     override val previousEntries: List<NavEntry<T>>,
     val listEntry: NavEntry<T>,
     val detailsEntry: NavEntry<T>,
-    val listScreenWeight: Float,
-    val detailsScreenWeight: Float,
 ) : Scene<T> {
 
     override val entries: List<NavEntry<T>>
@@ -26,13 +24,13 @@ class TwoPaneScene<T : Any>(
                 modifier = Modifier.fillMaxSize()
             ) {
                 Box(
-                    modifier = Modifier.weight(listScreenWeight)
+                    modifier = Modifier.weight(0.5f)
                 ) {
                     listEntry.Content()
                 }
 
                 Box(
-                    modifier = Modifier.weight(detailsScreenWeight)
+                    modifier = Modifier.weight(0.5f)
                 ) {
                     detailsEntry.Content()
                 }
