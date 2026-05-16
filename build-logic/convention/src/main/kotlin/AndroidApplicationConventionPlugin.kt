@@ -8,6 +8,10 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.kotlin.dsl.withType
+
 class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
@@ -25,23 +29,11 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 defaultConfig.versionName = "1.0"
                 defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
-
-            app {
-                defaultConfig {
-                    minSdk = projectLibs.findVersion("app-minSdk").get().displayName.toInt()
-                    targetSdk = projectLibs.findVersion("app-targetSdk").get().displayName.toInt()
-                    compileSdk = projectLibs.findVersion("app-compileSdk").get().displayName.toInt()
-                }
-                compileOptions {
-                    sourceCompatibility = JavaVersion.VERSION_21
-                    targetCompatibility = JavaVersion.VERSION_21
-                }
-            }
         }
         // Necessary for context receiver
 //        target.tasks.withType<KotlinCompile>().configureEach {
-//            kotlinOptions {
-//                freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
+//            compilerOptions {
+//                freeCompilerArgs.add("-Xcontext-receivers")
 //            }
 //        }
     }
