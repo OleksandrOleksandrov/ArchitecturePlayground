@@ -19,15 +19,11 @@ internal fun Project.configureKotlinAndroid(
     commonExtension.apply {
         compileSdk = projectLibs.findVersion("app-compileSdk").get().displayName.toInt()
 
-        defaultConfig {
-            minSdk = projectLibs.findVersion("app-minSdk").get().displayName.toInt()
-        }
+        defaultConfig.minSdk = projectLibs.findVersion("app-minSdk").get().displayName.toInt()
 
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
-            isCoreLibraryDesugaringEnabled = true
-        }
+        compileOptions.sourceCompatibility = JavaVersion.VERSION_21
+        compileOptions.targetCompatibility = JavaVersion.VERSION_21
+        compileOptions.isCoreLibraryDesugaringEnabled = true
     }
 
     configureKotlin<KotlinAndroidProjectExtension>()
