@@ -41,6 +41,8 @@ android {
             buildConfigField("String", "NASA_API_KEY", "\"$nasaApiKey\"")
         }
         create("staging") {
+            initWith(getByName("debug"))
+            matchingFallbacks += listOf("debug", "release")
             buildConfigField("Boolean", "DEV_OPTIONS", "true")
             buildConfigField("String", "NASA_BASE_URL", "\"https://api.nasa.gov\"")
             buildConfigField("String", "NASA_API_KEY", "\"$nasaApiKey\"")
@@ -54,16 +56,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
     }
 }
 
