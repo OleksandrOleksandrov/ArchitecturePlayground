@@ -51,8 +51,7 @@ datastoreVersion = "1.2.0"
 
 #protobuf
 protobufGradlePlugin = "0.9.5"
-protobufJavalite = "4.33.2"
-protobufKotlinLite = "4.33.2"
+protobufProtoc = "4.36.2"
 #protobuf
 
 #region koin
@@ -139,11 +138,12 @@ androidx-navigation-common-ktx = { group = "androidx.navigation", name = "naviga
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastoreVersion" }
 #region Protobuf
 # https://mvnrepository.com/artifact/com.google.protobuf/protobuf-javalite
-protobuf-javalite = { group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobufJavalite" }
+protobuf-javalite = { group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobufProtoc" }
 # https://mvnrepository.com/artifact/com.google.protobuf/protobuf-kotlin-lite
-protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobufKotlinLite" }
+protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobufProtoc" }
 # https://mvnrepository.com/artifact/com.google.protobuf/protobuf-gradle-plugin
 protobuf-gradle-plugin = { group = "com.google.protobuf", name = "protobuf-gradle-plugin", version.ref = "protobufGradlePlugin" }
+protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobufProtoc" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 #endregion Protobuf
@@ -170,5 +170,6 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 firebase-appDistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebaseAppDistribution" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobufGradlePlugin" }
 #firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics" }
 
