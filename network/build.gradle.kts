@@ -1,4 +1,3 @@
-import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
@@ -20,17 +19,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-    val properties = Properties().also {
-        it.load(
-            FileInputStream(
-                File(
-                    project.rootDir,
-                    "./configure/secrets/secrets.properties",
-                )
-            )
-        )
+    val secretsFile = File(project.rootDir, "configure/secrets/secrets.properties")
+    val properties = Properties().apply {
+        if (secretsFile.exists()) {
+            secretsFile.inputStream().use { load(it) }
+        }
     }
-    val nasaApiKey = properties.getProperty("NASA_API_KEY")
+    val nasaApiKey = System.getenv("NASA_API_KEY")
+        ?: properties.getProperty("NASA_API_KEY")
+        ?: "DEMO_KEY"
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
