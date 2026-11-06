@@ -63,9 +63,9 @@ materialVersion = "1.13.0"
 #endregion koin
 
 #region navigation3
-nav3Core = "1.0.0"
-lifecycleViewmodelNav3 = "2.10.0"
-material3AdaptiveNav3 = "1.3.0-alpha06"
+nav3Core = "1.2.1"
+lifecycleViewmodelNav3 = "2.11.0"
+material3AdaptiveNav3 = "1.3.0"
 #endregion navigation3
 
 [libraries]

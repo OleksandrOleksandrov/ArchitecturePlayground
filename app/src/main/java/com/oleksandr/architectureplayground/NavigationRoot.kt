@@ -35,7 +35,7 @@ fun NavigationRoot(
             rememberSaveableStateHolderNavEntryDecorator(),
             rememberViewModelStoreNavEntryDecorator(),
         ),
-        sceneStrategy = ListWithDetailsSceneStrategy(windowClass),
+        sceneStrategies = listOf(ListWithDetailsSceneStrategy(windowClass)),
         entryProvider = { key ->
             when (key) {
                 is BaseNavigationDirection.Main -> NavEntry(key) {
